@@ -111,7 +111,7 @@ class Client(object):
            match the whitelist
         """
         r = requests.put('%s/proxy/%s/whitelist' % (self.host, self.port),
-                         urlencode({'regex': regexp, 'status': status_code}))
+                         data={'regex': regexp, 'status': status_code})
         return r.status_code
 
     def blacklist(self, regexp, status_code):
@@ -124,7 +124,7 @@ class Client(object):
 
         """
         r = requests.put('%s/proxy/%s/blacklist' % (self.host, self.port),
-                         urlencode({'regex': regexp, 'status': status_code}))
+                         data={'regex': regexp, 'status': status_code})
         return r.status_code
 
     LIMITS = {
